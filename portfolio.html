@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ananta Kadel | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    
+    <section class="intro">
+        <div class="intro-content">
+            <h1 class="glitch-title" data-text="ANANTA KADEL">ANANTA KADEL</h1>
+            <p class="subtitle">INNOVATING / CREATING / LEARNING</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="IMG-20250412-WA0056.jpg" alt="Ananta Kadel" class="profile-image">
+            </div>
+            <div class="about-content">
+                <h2 class="about-title">About Me</h2>
+                <div class="about-text">
+                    <p>Yo, I'm Ananta Kadel — a creator and tech enthusiast on a mission to grow and push the boundaries of what's possible.</p>
+                    <p>Right now, I'm diving into AI and machine learning, taking my first steps in a world that excites the hell out of me. But I'm not just learning — I'm all about experimentation and exploration.</p>
+                    <p>I'm passionate about solving problems, creating clean designs, and using tech to build things that stand out. Every project I take on is a chance to learn, grow, and push myself to new limits.</p>
+                    <p>I'm still at the beginning of my journey, but if you're looking for someone who's hungry to learn, eager to build, and ready to collaborate — let's make something awesome.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="project-grid">
+            <article class="project-card">
+                <div>
+                    <h3 class="project-title">Shopping Site</h3>
+                    <p class="project-description">A modern e-commerce platform with intuitive user interface and smooth shopping experience.</p>
+                    <p class="project-tech">HTML • CSS • JavaScript</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://anantakadel.github.io/shopping-site/" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    <a href="https://github.com/Anantakadel/shopping-site" class="project-link" target="_blank" rel="noopener noreferrer">Source Code</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div>
+                    <h3 class="project-title">AI Assistant</h3>
+                    <p class="project-description">Intelligent assistant application built with Python, featuring natural language processing capabilities.</p>
+                    <p class="project-tech">Python • NLP • AI</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Anantakadel/asssistant" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div>
+                    <h3 class="project-title">Snake Game</h3>
+                    <p class="project-description">Classic snake game reimagined with modern graphics and smooth controls.</p>
+                    <p class="project-tech">Python • Pygame</p>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Anantakadel/snake-game" class="project-link" target="_blank" rel="noopener noreferrer">View Project</a>
+                </div>
+            </article>
+        </div>
+
+        <div class="github-section">
+            <p>Explore more of my projects on GitHub</p>
+            <a href="https://github.com/Anantakadel" class="github-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> Visit My GitHub Profile
+            </a>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="contact-container">
+            <h2 class="contact-title">Let's Connect</h2>
+            <p class="contact-subtitle">Ready to collaborate or just want to say hi? Choose your preferred way to reach out!</p>
+            
+            <div class="contact-options">
+                <div class="contact-option" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=anantakadel01@gmail.com', '_blank')">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>anantakadel01@gmail.com</p>
+                </div>
+                
+                <div class="contact-option" onclick="window.open('https://github.com/Anantakadel', '_blank')">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Let's collaborate on projects</p>
+                </div>
+                
+                <div class="contact-option" onclick="window.open('https://www.linkedin.com/in/ananta-kadel-943735215', '_blank')">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>Connect professionally</p>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="notification"></div>
+    <script src="script.js"></script>
+</body>
+</html>
