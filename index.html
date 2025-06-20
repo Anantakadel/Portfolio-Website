@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ananta Kadel | Software Developer</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#intro" class="nav-logo">AK</a>
+      <ul class="nav-menu">
+        <li><a href="#intro" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="intro" id="intro">
+    <div class="intro-content">
+      <h1>Ananta Kadel</h1>
+      <p class="subtitle">Software Developer & Technology Enthusiast</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="cta-button">View My Work</a>
+        <a href="#contact" class="cta-button secondary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="IMG-20250412-WA0056.jpg" alt="Ananta Kadel" class="profile-image" />
+      </div>
+      <div class="about-content">
+        <h2 class="about-title">About Me</h2>
+        <div class="about-text">
+          <p>
+            Hello, I'm Ananta Kadel — a dedicated software developer and technology
+            enthusiast committed to delivering innovative solutions and continuous
+            professional growth.
+          </p>
+          <p>
+            I am currently expanding my expertise in artificial intelligence and
+            machine learning, building foundational knowledge in these cutting-edge
+            technologies. My approach combines theoretical understanding with
+            practical application through hands-on projects.
+          </p>
+          <p>
+            I specialize in problem-solving, creating intuitive user interfaces, and
+            developing robust applications that meet business objectives. Each project
+            represents an opportunity to apply best practices and deliver high-quality
+            results.
+          </p>
+          <p>
+            As an emerging professional in the field, I bring enthusiasm, adaptability,
+            and a strong commitment to excellence. I welcome opportunities to
+            collaborate on meaningful projects and contribute to organizational success.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="skills-container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="85">Python</div>
+            <div class="skill-item" data-level="80">JavaScript</div>
+            <div class="skill-item" data-level="75">HTML/CSS</div>
+            <div class="skill-item" data-level="70">C++</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Technologies & Frameworks</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="80">Django</div>
+            <div class="skill-item" data-level="75">Flask</div>
+            <div class="skill-item" data-level="85">Git/GitHub</div>
+            <div class="skill-item" data-level="70">Machine Learning</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="90">VS Code</div>
+            <div class="skill-item" data-level="85">Linux</div>
+            <div class="skill-item" data-level="80">PyCharm</div>
+            <div class="skill-item" data-level="75">Database Management</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="projects-container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">E-Commerce Platform</h3>
+            <p class="project-description">
+              Full-featured e-commerce solution with responsive design, optimized user
+              experience, and comprehensive product management capabilities.
+            </p>
+            <p class="project-tech">HTML • CSS • JavaScript • Responsive Design</p>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://anantakadel.github.io/shopping-site/"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/Anantakadel/shopping-site"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Source Code</a
+            >
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-content">
+            <h3 class="project-title">AI Virtual Assistant</h3>
+            <p class="project-description">
+              Intelligent virtual assistant leveraging natural language processing and
+              machine learning algorithms to provide contextual responses and task
+              automation.
+            </p>
+            <p class="project-tech">Python • NLP • Machine Learning • API Integration</p>
+          </div>
+          <div class="project-links">
+            <a
+              href="https://github.com/Anantakadel/asssistant"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Project</a
+            >
+          </div>
+        </article>
+
+        <article class="project-card">
+  <div>
+    <h3 class="project-title">Campus Hive</h3>
+    <p class="project-description">
+      A full-featured campus management system built with Flask and PostgreSQL. It supports role-based access, real-time study material sharing, forums, announcements, event scheduling, and personalized dashboards to enhance campus collaboration.
+    </p>
+    <p class="project-tech">Flask • PostgreSQL • JWT • REST API • Real-time SSE • Cloud DB</p>
+  </div>
+  <div class="project-link-boxes">
+    <div class="link-box">
+      <a
+        href="https://campus-hive-demo-link.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+      </a>
+    </div>
+     <div class="project-links">
+            <a
+              href="https://campus-hive-9eaz.onrender.com/"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Live Demo</a
+            >
+            <a
+              href="https://github.com/Anantakadel/campus-hive"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Source Code</a
+            >
+          </div>
+  </div>
+</article>
+
+
+
+
+      </div>
+
+      <div class="github-section">
+        <p>Discover additional projects and contributions in my GitHub repository</p>
+        <a
+          href="https://github.com/Anantakadel"
+          class="github-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github"></i> View Complete Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-container">
+      <h2 class="contact-title">Let's Connect</h2>
+      <p class="contact-subtitle">
+        I welcome opportunities to discuss potential collaborations, projects, or
+        professional inquiries. Please feel free to reach out through any of the
+        following channels:
+      </p>
+
+      <div class="contact-options">
+        <a
+          href="mailto:anantakadel01@gmail.com"
+          class="contact-option"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p>anantakadel01@gmail.com</p>
+        </a>
+
+        <a
+          href="https://github.com/Anantakadel"
+          class="contact-option"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-github"></i>
+          <h3>GitHub</h3>
+          <p>View my code repositories</p>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/ananta-kadel-943735215"
+          class="contact-option"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-linkedin"></i>
+          <h3>LinkedIn</h3>
+          <p>Professional networking</p>
+        </a>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              class="form-control"
+              placeholder="Your Email"
+              required
+            />
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea
+            name="message"
+            class="form-control"
+            placeholder="Your Message"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="submit-button">
+          <span>Send Message</span>
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Ananta Kadel. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#intro">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="notification"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
