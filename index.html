@@ -2,61 +2,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ananta Kadel | Software Developer</title>
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
-
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ananta Kadel - Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#intro" class="nav-logo">AK</a>
-      <ul class="nav-menu">
-        <li><a href="#intro" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-        <li>
-          <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark mode">
-            <i class="fas fa-moon"></i>
+  <!-- Header & Navigation -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <span class="logo-text">Ananta<span class="logo-dot">.</span>Kadel</span>
+        </a>
+        
+        <div class="nav-right">
+          <ul class="nav-menu">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          
+          <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark mode">
+            <i class="fas fa-sun light-icon"></i>
+            <i class="fas fa-moon dark-icon"></i>
           </button>
-        </li>
-      </ul>
-      <div class="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+          
+          <button class="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <section class="intro" id="intro">
-    <div class="intro-content">
-      <h1>Ananta Kadel</h1>
-      <p class="subtitle">Software Developer & Technology Enthusiast</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="cta-button">View My Work</a>
-        <a href="#contact" class="cta-button secondary">Get In Touch</a>
+  <!-- Hero Section -->
+  <section id="intro" class="hero-section">
+    <div class="container">
+      <div class="hero-content full-width">
+        <div class="hero-text">
+          <span class="hero-greeting">Hello, I'm</span>
+          <h1 class="hero-title">Ananta Kadel</h1>
+          <h2 class="hero-subtitle">Software Developer & Technology Enthusiast</h2>
+          <p class="hero-description">I build exceptional digital experiences with modern technologies. Focused on creating responsive, user-friendly applications that solve real-world problems.</p>
+          
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            <a href="Ananta_Kadel_Resume.pdf" class="btn btn-outline" download>
+              <i class="fas fa-download"></i> Download Resume
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="about" id="about">
+    <section class="about" id="about">
     <div class="about-container">
       <div class="about-image">
         <img src="IMG-20250412-WA0056.jpg" alt="Ananta Kadel" class="profile-image" />
@@ -86,6 +94,41 @@
             and a strong commitment to excellence. I welcome opportunities to
             collaborate on meaningful projects and contribute to organizational success.
           </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="skills-container">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="85">Python</div>
+            <div class="skill-item" data-level="80">JavaScript</div>
+            <div class="skill-item" data-level="75">HTML/CSS</div>
+            <div class="skill-item" data-level="70">C++</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Technologies & Frameworks</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="80">Django</div>
+            <div class="skill-item" data-level="75">Flask</div>
+            <div class="skill-item" data-level="85">Git/GitHub</div>
+            <div class="skill-item" data-level="70">Machine Learning</div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-level="90">VS Code</div>
+            <div class="skill-item" data-level="85">Linux</div>
+            <div class="skill-item" data-level="80">PyCharm</div>
+            <div class="skill-item" data-level="75">Database Management</div>
+          </div>
         </div>
       </div>
     </div>
