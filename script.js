@@ -9,20 +9,12 @@ function setTheme(isDark) {
   if (isDark) {
     body.classList.add("dark-theme");
     body.classList.remove("light-theme");
-    updateThemeIcon(true);
     localStorage.setItem("theme", "dark");
   } else {
     body.classList.remove("dark-theme");
     body.classList.add("light-theme");
-    updateThemeIcon(false);
     localStorage.setItem("theme", "light");
   }
-}
-
-// Update theme icon
-function updateThemeIcon(isDark) {
-  const icon = themeToggleBtn.querySelector("i");
-  icon.className = isDark ? "fas fa-sun" : "fas fa-moon";
 }
 
 // Initialize theme
@@ -37,11 +29,13 @@ function initializeTheme() {
   }
 }
 
-// Toggle theme
-themeToggleBtn.addEventListener("click", () => {
-  const isDark = !body.classList.contains("dark-theme");
-  setTheme(isDark);
-});
+// Toggle theme (guard in case element is missing)
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", () => {
+    const isDark = !body.classList.contains("dark-theme");
+    setTheme(isDark);
+  });
+}
 
 // Listen for system theme changes
 prefersDarkScheme.addEventListener("change", (e) => {
@@ -135,6 +129,7 @@ function validateEmail(email) {
 const nameInput = contactForm.querySelector('input[name="name"]');
 const emailInput = contactForm.querySelector('input[name="email"]');
 const messageInput = contactForm.querySelector('textarea[name="message"]');
+const subjectInput = contactForm.querySelector('input[name="subject"]');
 
 // Add validation feedback elements
 function createFeedbackElement(input) {
@@ -146,6 +141,7 @@ function createFeedbackElement(input) {
 
 const nameFeedback = createFeedbackElement(nameInput);
 const emailFeedback = createFeedbackElement(emailInput);
+const subjectFeedback = createFeedbackElement(subjectInput);
 const messageFeedback = createFeedbackElement(messageInput);
 
 // Real-time validation functions
@@ -188,12 +184,29 @@ messageInput.addEventListener('blur', () => {
   }
 });
 
+// Subject validation
+if (subjectInput) {
+  subjectInput.addEventListener('blur', () => {
+    const subject = subjectInput.value.trim();
+    if (!subject || subject.length < 3) {
+      subjectFeedback.textContent = 'Subject must be at least 3 characters';
+      subjectFeedback.classList.add('invalid');
+      subjectInput.classList.add('invalid-input');
+    } else {
+      subjectFeedback.textContent = '';
+      subjectFeedback.classList.remove('invalid');
+      subjectInput.classList.remove('invalid-input');
+    }
+  });
+}
+
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
   
   const formData = new FormData(contactForm);
   const name = formData.get("name").trim();
   const email = formData.get("email").trim();
+  const subject = (formData.get("subject") || "").trim();
   const message = formData.get("message").trim();
   
   // Validation
@@ -210,6 +223,13 @@ contactForm.addEventListener("submit", (e) => {
     emailFeedback.textContent = 'Please enter a valid email address';
     emailFeedback.classList.add('invalid');
     emailInput.classList.add('invalid-input');
+    isValid = false;
+  }
+
+  if (!subject || subject.length < 3) {
+    subjectFeedback.textContent = 'Subject must be at least 3 characters';
+    subjectFeedback.classList.add('invalid');
+    subjectInput.classList.add('invalid-input');
     isValid = false;
   }
   
@@ -232,47 +252,43 @@ contactForm.addEventListener("submit", (e) => {
   submitButton.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
   submitButton.disabled = true;
   
-  // Send data using fetch API (commented out for now)
-  /* 
-  fetch('https://formspree.io/f/your-form-id', {
+  // Send data using fetch API to Formspree
+  fetch('https://formspree.io/f/mykypoaj', {
     method: 'POST',
     body: formData,
     headers: {
       'Accept': 'application/json'
     }
   })
-  .then(response => {
+  .then(async (response) => {
     if (response.ok) {
       showNotification("Thank you! Your message has been sent successfully.", "success");
       contactForm.reset();
     } else {
-      showNotification("Oops! There was a problem sending your message.", "error");
+      // Try to read error details from JSON response
+      let data = null;
+      try { data = await response.json(); } catch (err) { /* ignore */ }
+      const msg = (data && (data.error || data.message)) ? (data.error || data.message) : "Oops! There was a problem sending your message.";
+      showNotification(msg, "error");
     }
+
+    // Restore button and clear validation styles
     submitButton.innerHTML = originalText;
     submitButton.disabled = false;
+    nameFeedback.textContent = '';
+    emailFeedback.textContent = '';
+  subjectFeedback.textContent = '';
+  messageFeedback.textContent = '';
+  nameInput.classList.remove('invalid-input');
+  emailInput.classList.remove('invalid-input');
+  subjectInput.classList.remove('invalid-input');
+  messageInput.classList.remove('invalid-input');
   })
-  .catch(error => {
+  .catch(() => {
     showNotification("Network error. Please try again later.", "error");
     submitButton.innerHTML = originalText;
     submitButton.disabled = false;
   });
-  */
-  
-  // Simulate API call (for demo purposes)
-  setTimeout(() => {
-    showNotification("Thank you! Your message has been sent successfully.", "success");
-    contactForm.reset();
-    submitButton.innerHTML = originalText;
-    submitButton.disabled = false;
-    
-    // Clear validation feedback
-    nameFeedback.textContent = '';
-    emailFeedback.textContent = '';
-    messageFeedback.textContent = '';
-    nameInput.classList.remove('invalid-input');
-    emailInput.classList.remove('invalid-input');
-    messageInput.classList.remove('invalid-input');
-  }, 2000);
 });
 
 // Enhanced smooth scrolling for navigation links
@@ -302,6 +318,23 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const id = entry.target.id;
+    const link = document.querySelector(`.nav-menu a[href="#${id}"]`);
+    if (entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: 0.55 });
+
+sections.forEach(section => sectionObserver.observe(section));
 
 // Navbar scroll effect
 let lastScrollTop = 0;
