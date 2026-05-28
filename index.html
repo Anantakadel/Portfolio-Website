@@ -1,360 +1,455 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ananta Kadel — BIT Student & Networking-focused Developer</title>
-  <meta name="description" content="BIT final-year student & Technical Support Intern at Vianet. I specialize in networks, connectivity, and pragmatic troubleshooting—building reliable web systems and restoring stable, secure connections.">
-  <meta name="theme-color" content="#4361ee">
-  <link rel="canonical" href="https://anantakadel.com.np/">
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="Ananta Kadel — Networking-focused Developer">
-  <meta property="og:description" content="BIT final-year student & Technical Support Intern at Vianet. Specializing in networks, connectivity, and practical troubleshooting to keep systems online.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://anantakadel.com.np/">
-  <meta property="og:image" content="IMG-20250412-WA0056.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Ananta Kadel — Networking-focused Developer">
-  <meta name="twitter:description" content="BIT student & Technical Support Intern at Vianet. I build reliable systems and specialize in networking and troubleshooting.">
-  <!-- Performance: preconnect to font and CDN origins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="styles.css?v=20251228">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Header & Navigation -->
-  <header class="header">
-    <div class="container">
-      <nav class="navbar">
-        <a href="#" class="logo">
-          <span class="logo-text">Ananta<span class="logo-dot">.</span>Kadel</span>
-        </a>
-        
-        <div class="nav-right">
-          <ul class="nav-menu">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#experience" class="nav-link">Experience</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
-          
-          <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark mode">
-            <i class="fas fa-sun light-icon"></i>
-            <i class="fas fa-moon dark-icon"></i>
-          </button>
-          
-          <button class="hamburger" aria-label="Menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </button>
-        </div>
-      </nav>
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ananta Kadel — BIT Student & Networking-focused Developer</title>
+    <meta
+      name="description"
+      content="BIT final-year student & Technical Support Intern at Vianet. I specialize in networks, connectivity, and pragmatic troubleshooting—building reliable web systems and restoring stable, secure connections."
+    />
+    <meta name="theme-color" content="#4361ee" />
+    <link rel="canonical" href="https://anantakadel.com.np/" />
+    <!-- Open Graph / Social -->
+    <meta
+      property="og:title"
+      content="Ananta Kadel — Networking-focused Developer"
+    />
+    <meta
+      property="og:description"
+      content="BIT final-year student & Technical Support Intern at Vianet. Specializing in networks, connectivity, and practical troubleshooting to keep systems online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://anantakadel.com.np/" />
+    <meta property="og:image" content="IMG-20250412-WA0056.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Ananta Kadel — Networking-focused Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="BIT student & Technical Support Intern at Vianet. I build reliable systems and specialize in networking and troubleshooting."
+    />
+    <!-- Performance: preconnect to font and CDN origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="stylesheet" href="styles.css?v=20251228" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="#" class="logo">
+            <span class="logo-text"
+              >Ananta<span class="logo-dot">.</span>Kadel</span
+            >
+          </a>
 
-  <!-- Hero Section -->
-  <section id="intro" class="hero-section">
-    <div class="container">
-      <div class="hero-content full-width">
-        <div class="hero-text">
-          <span class="hero-greeting">Hello, I'm</span>
-          <h1 class="hero-title">Ananta Kadel</h1>
-          <h2 class="hero-subtitle">Networking-focused Software Developer</h2>
-          <p class="hero-tagline">Bad at love connections. Good at internet connections.</p>
-          <p class="hero-description">Final-year BIT student and Technical Support Intern at Vianet. I build reliable web experiences and systems, with a focus on networks, connectivity, and pragmatic troubleshooting to keep people and services online.</p>
-          
-          <div class="hero-buttons">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-outline">Get In Touch</a>
-            <a href="Ananta_Kadel_Resume.pdf" class="btn btn-outline" download>
-              <i class="fas fa-download"></i> Download Resume
-            </a>
+          <div class="nav-right">
+            <ul class="nav-menu">
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#experience" class="nav-link">Experience</a></li>
+              <li><a href="#skills" class="nav-link">Skills</a></li>
+              <li><a href="#projects" class="nav-link">Projects</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button
+              id="theme-toggle-btn"
+              class="theme-toggle-btn"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-sun light-icon"></i>
+              <i class="fas fa-moon dark-icon"></i>
+            </button>
+
+            <button class="hamburger" aria-label="Menu">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="intro" class="hero-section">
+      <div class="container">
+        <div class="hero-content full-width">
+          <div class="hero-text">
+            <span class="hero-greeting">Hello, I'm</span>
+            <h1 class="hero-title">Ananta Kadel</h1>
+            <h2 class="hero-subtitle">Networking-focused Software Developer</h2>
+            <p class="hero-tagline">
+              Bad at love connections. Good at internet connections.
+            </p>
+            <p class="hero-description">
+              Final-year BIT student and Technical Support Intern at Vianet. I
+              build reliable web experiences and systems, with a focus on
+              networks, connectivity, and pragmatic troubleshooting to keep
+              people and services online.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Get In Touch</a>
+              <a
+                href="Ananta_Kadel_Resume.pdf"
+                class="btn btn-outline"
+                download
+              >
+                <i class="fas fa-download"></i> Download Resume
+              </a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
- 
+    </section>
 
     <section class="about" id="about">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="IMG-20250412-WA0056.jpg" alt="Ananta Kadel" class="profile-image" loading="lazy" width="350" height="350" />
-      </div>
-      <div class="about-content">
-        <h2 class="about-title">About Me</h2>
-        <div class="about-text">
-          <p>
-            Hello, I'm Ananta Kadel — a dedicated developer and technology
-            enthusiast committed to delivering innovative solutions and continuous
-            professional growth.
-          </p>
-          <p>
-            I’m a BIT final-year student with a strong interest in networks, connectivity, systems, and the people who depend on them. I’m currently gaining hands-on experience as a Technical Support Intern at Vianet, where I work with real-world connectivity issues, user-side troubleshooting, and system-level problems.
-          </p>
-          <p>
-            I might not always be able to connect in love relationships—but when it comes to internet connections, networks, and troubleshooting, that’s my zone. I enjoy understanding how systems communicate, why networks fail, and how to restore stable, secure connectivity.
-          </p>
-          <p>
-            Alongside my internship, I’m actively learning computer networking fundamentals, building skills in network troubleshooting, routing and switching concepts, Linux systems, and IT infrastructure, with the goal of growing into a Networking Engineer.
-          </p>
-          <p>
-            I believe good networks are invisible when they work—and unforgettable when they don’t. My focus is to make sure they work.
-          </p>
+      <div class="about-container">
+        <div class="about-image">
+          <img
+            src="IMG-20250412-WA0056.jpg"
+            alt="Ananta Kadel"
+            class="profile-image"
+            loading="lazy"
+            width="350"
+            height="350"
+          />
         </div>
-      </div>
-    </div>
-  </section>
- <section class="experience" id="experience">
-    <div class="experience-container">
-      <h2 class="section-title">Experience</h2>
-
-      <div class="timeline">
-        <article class="job-item">
-          <div class="job-header">
-            <h3 class="job-title">Technical Support Intern — Vianet</h3>
-            <span class="job-date">Nov 2025 — Present</span>
-          </div>
-          <p class="job-desc">Provide first‑level support for customer internet connections and router configurations; diagnose and resolve issues using networking fundamentals and Linux tools; document resolutions and escalate when needed.</p>
-          <p class="job-desc"><strong>Skills:</strong> TCP/IP, DNS, DHCP, wireless networking, Linux, troubleshooting, customer communication.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="skills" id="skills">
-    <div class="skills-container">
-      <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Programming Languages</h3>
-          <div class="skill-items">
-            <div class="skill-item" data-level="85">Python</div>
-            <div class="skill-item" data-level="80">JavaScript</div>
-            <div class="skill-item" data-level="75">HTML/CSS</div>
-            <div class="skill-item" data-level="70">C++</div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Technologies & Frameworks</h3>
-          <div class="skill-items">
-            <div class="skill-item" data-level="80">Django</div>
-            <div class="skill-item" data-level="75">Flask</div>
-            <div class="skill-item" data-level="85">Git/GitHub</div>
-            <div class="skill-item" data-level="70">Machine Learning</div>
-          </div>
-        </div>
-        <div class="skill-category">
-          <h3>Tools & Platforms</h3>
-          <div class="skill-items">
-            <div class="skill-item" data-level="90">VS Code</div>
-            <div class="skill-item" data-level="85">Linux</div>
-            <div class="skill-item" data-level="80">PyCharm</div>
-            <div class="skill-item" data-level="75">Database Management</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="projects" id="projects">
-    <div class="projects-container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-content">
-            <h3 class="project-title">E-Commerce Platform</h3>
-            <p class="project-description">
-              Full-featured e-commerce solution with responsive design, optimized user
-              experience, and comprehensive product management capabilities.
+        <div class="about-content">
+          <h2 class="about-title">About Me</h2>
+          <div class="about-text">
+            <p>
+              Hello, I'm Ananta Kadel — a dedicated developer and technology
+              enthusiast committed to delivering innovative solutions and
+              continuous professional growth.
             </p>
-            <p class="project-tech">HTML • CSS • JavaScript • Responsive Design</p>
-          </div>
-          <div class="project-links">
-            <a
-              href="https://anantakadel.github.io/shopping-site/"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Live Demo</a
-            >
-            <a
-              href="https://github.com/Anantakadel/shopping-site"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Source Code</a
-            >
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-content">
-            <h3 class="project-title">AI Virtual Assistant</h3>
-            <p class="project-description">
-              Intelligent virtual assistant leveraging natural language processing and
-              machine learning algorithms to provide contextual responses and task
-              automation.
+            <p>
+              I’m a BIT final-year student with a strong interest in networks,
+              connectivity, systems, and the people who depend on them. I’m
+              currently gaining hands-on experience as a Technical Support
+              Intern at Vianet, where I work with real-world connectivity
+              issues, user-side troubleshooting, and system-level problems.
             </p>
-            <p class="project-tech">Python • NLP • Machine Learning • API Integration</p>
+            <p>
+              I might not always be able to connect in love relationships—but
+              when it comes to internet connections, networks, and
+              troubleshooting, that’s my zone. I enjoy understanding how systems
+              communicate, why networks fail, and how to restore stable, secure
+              connectivity.
+            </p>
+            <p>
+              Alongside my internship, I’m actively learning computer networking
+              fundamentals, building skills in network troubleshooting, routing
+              and switching concepts, Linux systems, and IT infrastructure, with
+              the goal of growing into a Networking Engineer.
+            </p>
+            <p>
+              I believe good networks are invisible when they work—and
+              unforgettable when they don’t. My focus is to make sure they work.
+            </p>
           </div>
-          <div class="project-links">
-            <a
-              href="https://github.com/Anantakadel/asssistant"
-              class="project-link"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View Project</a
-            >
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-content">
-            <h3 class="project-title">Campus Hive</h3>
-            <p class="project-description">A full-featured campus management system built with Flask and PostgreSQL. It supports role-based access, real-time study material sharing, forums, announcements, event scheduling, and personalized dashboards to enhance campus collaboration.</p>
-            <p class="project-tech">Flask • PostgreSQL • JWT • REST API • Real-time SSE • Cloud DB</p>
-          </div>
-
-          <div class="project-links">
-            <a href="https://campus-hive-9eaz.onrender.com/" class="project-link" target="_blank" rel="noopener noreferrer">Live Demo</a>
-            <a href="https://github.com/Anantakadel/campus-hive" class="project-link" target="_blank" rel="noopener noreferrer">Source Code</a>
-          </div>
-        </article>
-
-
-
-
+        </div>
       </div>
+    </section>
+    <section class="experience" id="experience">
+      <div class="experience-container">
+        <h2 class="section-title">Experience</h2>
 
-      <div class="github-section">
-        <p>Discover additional projects and contributions in my GitHub repository</p>
-        <a
-          href="https://github.com/Anantakadel"
-          class="github-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-github"></i> View Complete Portfolio
-        </a>
+        <div class="timeline">
+          <article class="job-item">
+            <div class="job-header">
+              <h3 class="job-title">Technical Support Intern — Vianet</h3>
+              <span class="job-date">Nov 2025 — Present</span>
+            </div>
+            <p class="job-desc">
+              Provide first‑level support for customer internet connections and
+              router configurations; diagnose and resolve issues using
+              networking fundamentals and Linux tools; document resolutions and
+              escalate when needed.
+            </p>
+            <p class="job-desc">
+              <strong>Skills:</strong> TCP/IP, DNS, DHCP, wireless networking,
+              Linux, troubleshooting, customer communication.
+            </p>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" id="contact">
-    <div class="contact-container">
-      <h2 class="contact-title">Let's Connect</h2>
-      <p class="contact-subtitle">
-        I welcome opportunities to discuss potential collaborations, projects, or
-        professional inquiries. Please feel free to reach out through any of the
-        following channels:
-      </p>
-
-      <div class="contact-options">
-        <a
-          href="mailto:anantakadel01@gmail.com"
-          class="contact-option"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fas fa-envelope"></i>
-          <h3>Email</h3>
-          <p>anantakadel01@gmail.com</p>
-        </a>
-
-        <a
-          href="https://github.com/Anantakadel"
-          class="contact-option"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-github"></i>
-          <h3>GitHub</h3>
-          <p>View my code repositories</p>
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/ananta-kadel-943735215"
-          class="contact-option"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fab fa-linkedin"></i>
-          <h3>LinkedIn</h3>
-          <p>Professional networking</p>
-        </a>
+    <section class="skills" id="skills">
+      <div class="skills-container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-items">
+              <div class="skill-item" data-level="85">Python</div>
+              <div class="skill-item" data-level="80">JavaScript</div>
+              <div class="skill-item" data-level="75">HTML/CSS</div>
+              <div class="skill-item" data-level="70">C++</div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Technologies & Frameworks</h3>
+            <div class="skill-items">
+              <div class="skill-item" data-level="80">Django</div>
+              <div class="skill-item" data-level="75">Flask</div>
+              <div class="skill-item" data-level="85">Git/GitHub</div>
+              <div class="skill-item" data-level="70">Machine Learning</div>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Platforms</h3>
+            <div class="skill-items">
+              <div class="skill-item" data-level="90">VS Code</div>
+              <div class="skill-item" data-level="85">Linux</div>
+              <div class="skill-item" data-level="80">PyCharm</div>
+              <div class="skill-item" data-level="75">Database Management</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-  <form class="contact-form" id="contactForm" action="https://formspree.io/f/mykypoaj" method="POST">
-        <div class="form-row">
+    <section class="projects" id="projects">
+      <div class="projects-container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce Platform</h3>
+              <p class="project-description">
+                Full-featured e-commerce solution with responsive design,
+                optimized user experience, and comprehensive product management
+                capabilities.
+              </p>
+              <p class="project-tech">
+                HTML • CSS • JavaScript • Responsive Design
+              </p>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://anantakadel.github.io/shopping-site/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/Anantakadel/shopping-site"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source Code</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <h3 class="project-title">AI Virtual Assistant</h3>
+              <p class="project-description">
+                Intelligent virtual assistant leveraging natural language
+                processing and machine learning algorithms to provide contextual
+                responses and task automation.
+              </p>
+              <p class="project-tech">
+                Python • NLP • Machine Learning • API Integration
+              </p>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/Anantakadel/asssistant"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-content">
+              <h3 class="project-title">Campus Hive</h3>
+              <p class="project-description">
+                A full-featured campus management system built with Flask and
+                PostgreSQL. It supports role-based access, real-time study
+                material sharing, forums, announcements, event scheduling, and
+                personalized dashboards to enhance campus collaboration.
+              </p>
+              <p class="project-tech">
+                Flask • PostgreSQL • JWT • REST API • Real-time SSE • Cloud DB
+              </p>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://campus-hive-9eaz.onrender.com/"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Live Demo</a
+              >
+              <a
+                href="https://github.com/Anantakadel/campus-hive"
+                class="project-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Source Code</a
+              >
+            </div>
+          </article>
+        </div>
+
+        <div class="github-section">
+          <p>
+            Discover additional projects and contributions in my GitHub
+            repository
+          </p>
+          <a
+            href="https://github.com/Anantakadel"
+            class="github-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i> View Complete Portfolio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <h2 class="contact-title">Let's Connect</h2>
+        <p class="contact-subtitle">
+          I welcome opportunities to discuss potential collaborations, projects,
+          or professional inquiries. Please feel free to reach out through any
+          of the following channels:
+        </p>
+
+        <div class="contact-options">
+          <a
+            href="mailto:anantakadel01@gmail.com"
+            class="contact-option"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>anantakadel01@gmail.com</p>
+          </a>
+
+          <a
+            href="https://github.com/Anantakadel"
+            class="contact-option"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <p>View my code repositories</p>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/ananta-kadel-943735215"
+            class="contact-option"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fab fa-linkedin"></i>
+            <h3>LinkedIn</h3>
+            <p>Professional networking</p>
+          </a>
+        </div>
+
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://formspree.io/f/mykypoaj"
+          method="POST"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="Your Name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+          </div>
           <div class="form-group">
             <input
               type="text"
-              name="name"
+              name="subject"
               class="form-control"
-              placeholder="Your Name"
+              placeholder="Subject"
               required
             />
           </div>
           <div class="form-group">
-            <input
-              type="email"
-              name="email"
+            <textarea
+              name="message"
               class="form-control"
-              placeholder="Your Email"
+              placeholder="Your Message"
+              rows="5"
               required
-            />
+            ></textarea>
           </div>
-        </div>
-        <div class="form-group">
-          <input
-            type="text"
-            name="subject"
-            class="form-control"
-            placeholder="Subject"
-            required
-          />
-        </div>
-        <div class="form-group">
-          <textarea
-            name="message"
-            class="form-control"
-            placeholder="Your Message"
-            rows="5"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="submit-button">
-          <span>Send Message</span>
-          <i class="fas fa-paper-plane"></i>
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <p>&copy; 2025 Ananta Kadel. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#intro">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+          <button type="submit" class="submit-button">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <div id="notification"></div>
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2025 Ananta Kadel. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#intro">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
 
-  <script src="script.js?v=20251228" defer></script>
+    <div id="notification"></div>
 
-</body>
+    <script src="script.js?v=20251228" defer></script>
+  </body>
 </html>
