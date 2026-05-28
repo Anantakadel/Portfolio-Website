@@ -1,4 +1,3 @@
-
 // Enhanced Theme Management
 const themeToggleBtn = document.getElementById("theme-toggle-btn");
 const body = document.body;
@@ -21,7 +20,7 @@ function setTheme(isDark) {
 function initializeTheme() {
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = prefersDarkScheme.matches;
-  
+
   if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
     setTheme(true);
   } else {
@@ -46,12 +45,12 @@ prefersDarkScheme.addEventListener("change", (e) => {
 });
 
 // Add scroll event for header
-const header = document.querySelector('.header');
-window.addEventListener('scroll', () => {
+const header = document.querySelector(".header");
+window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
-    header.classList.add('scrolled');
+    header.classList.add("scrolled");
   } else {
-    header.classList.remove('scrolled');
+    header.classList.remove("scrolled");
   }
 });
 
@@ -65,7 +64,7 @@ hamburger.addEventListener("click", () => {
 });
 
 // Close mobile menu when clicking nav links
-document.querySelectorAll(".nav-link").forEach(link => {
+document.querySelectorAll(".nav-link").forEach((link) => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
     hamburger.classList.remove("active");
@@ -86,11 +85,11 @@ const skillItems = document.querySelectorAll(".skill-item");
 // Intersection Observer for better performance
 const observerOptions = {
   threshold: 0.1,
-  rootMargin: "0px 0px -50px 0px"
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const item = entry.target;
       item.classList.add("animate");
@@ -103,7 +102,7 @@ const skillObserver = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-skillItems.forEach(item => {
+skillItems.forEach((item) => {
   skillObserver.observe(item);
 });
 
@@ -114,7 +113,7 @@ const notification = document.getElementById("notification");
 function showNotification(message, type = "success") {
   notification.textContent = message;
   notification.className = `show ${type}`;
-  
+
   setTimeout(() => {
     notification.classList.remove("show");
   }, 4000);
@@ -133,8 +132,8 @@ const subjectInput = contactForm.querySelector('input[name="subject"]');
 
 // Add validation feedback elements
 function createFeedbackElement(input) {
-  const feedback = document.createElement('div');
-  feedback.className = 'validation-feedback';
+  const feedback = document.createElement("div");
+  feedback.className = "validation-feedback";
   input.parentNode.appendChild(feedback);
   return feedback;
 }
@@ -145,196 +144,211 @@ const subjectFeedback = createFeedbackElement(subjectInput);
 const messageFeedback = createFeedbackElement(messageInput);
 
 // Real-time validation functions
-nameInput.addEventListener('blur', () => {
+nameInput.addEventListener("blur", () => {
   const name = nameInput.value.trim();
   if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
+    nameFeedback.textContent = "Name must be at least 2 characters";
+    nameFeedback.classList.add("invalid");
+    nameInput.classList.add("invalid-input");
   } else {
-    nameFeedback.textContent = '';
-    nameFeedback.classList.remove('invalid');
-    nameInput.classList.remove('invalid-input');
+    nameFeedback.textContent = "";
+    nameFeedback.classList.remove("invalid");
+    nameInput.classList.remove("invalid-input");
   }
 });
 
-emailInput.addEventListener('blur', () => {
+emailInput.addEventListener("blur", () => {
   const email = emailInput.value.trim();
   if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
+    emailFeedback.textContent = "Please enter a valid email address";
+    emailFeedback.classList.add("invalid");
+    emailInput.classList.add("invalid-input");
   } else {
-    emailFeedback.textContent = '';
-    emailFeedback.classList.remove('invalid');
-    emailInput.classList.remove('invalid-input');
+    emailFeedback.textContent = "";
+    emailFeedback.classList.remove("invalid");
+    emailInput.classList.remove("invalid-input");
   }
 });
 
-messageInput.addEventListener('blur', () => {
+messageInput.addEventListener("blur", () => {
   const message = messageInput.value.trim();
   if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
+    messageFeedback.textContent = "Message must be at least 10 characters";
+    messageFeedback.classList.add("invalid");
+    messageInput.classList.add("invalid-input");
   } else {
-    messageFeedback.textContent = '';
-    messageFeedback.classList.remove('invalid');
-    messageInput.classList.remove('invalid-input');
+    messageFeedback.textContent = "";
+    messageFeedback.classList.remove("invalid");
+    messageInput.classList.remove("invalid-input");
   }
 });
 
 // Subject validation
 if (subjectInput) {
-  subjectInput.addEventListener('blur', () => {
+  subjectInput.addEventListener("blur", () => {
     const subject = subjectInput.value.trim();
     if (!subject || subject.length < 3) {
-      subjectFeedback.textContent = 'Subject must be at least 3 characters';
-      subjectFeedback.classList.add('invalid');
-      subjectInput.classList.add('invalid-input');
+      subjectFeedback.textContent = "Subject must be at least 3 characters";
+      subjectFeedback.classList.add("invalid");
+      subjectInput.classList.add("invalid-input");
     } else {
-      subjectFeedback.textContent = '';
-      subjectFeedback.classList.remove('invalid');
-      subjectInput.classList.remove('invalid-input');
+      subjectFeedback.textContent = "";
+      subjectFeedback.classList.remove("invalid");
+      subjectInput.classList.remove("invalid-input");
     }
   });
 }
 
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  
+
   const formData = new FormData(contactForm);
   const name = formData.get("name").trim();
   const email = formData.get("email").trim();
   const subject = (formData.get("subject") || "").trim();
   const message = formData.get("message").trim();
-  
+
   // Validation
   let isValid = true;
-  
+
   if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
+    nameFeedback.textContent = "Name must be at least 2 characters";
+    nameFeedback.classList.add("invalid");
+    nameInput.classList.add("invalid-input");
     isValid = false;
   }
-  
+
   if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
+    emailFeedback.textContent = "Please enter a valid email address";
+    emailFeedback.classList.add("invalid");
+    emailInput.classList.add("invalid-input");
     isValid = false;
   }
 
   if (!subject || subject.length < 3) {
-    subjectFeedback.textContent = 'Subject must be at least 3 characters';
-    subjectFeedback.classList.add('invalid');
-    subjectInput.classList.add('invalid-input');
+    subjectFeedback.textContent = "Subject must be at least 3 characters";
+    subjectFeedback.classList.add("invalid");
+    subjectInput.classList.add("invalid-input");
     isValid = false;
   }
-  
+
   if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
+    messageFeedback.textContent = "Message must be at least 10 characters";
+    messageFeedback.classList.add("invalid");
+    messageInput.classList.add("invalid-input");
     isValid = false;
   }
-  
+
   if (!isValid) {
     showNotification("Please fix the errors in the form", "error");
     return;
   }
-  
+
   // Form submission
   const submitButton = contactForm.querySelector(".submit-button");
   const originalText = submitButton.innerHTML;
-  
-  submitButton.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+
+  submitButton.innerHTML =
+    '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
   submitButton.disabled = true;
-  
+
   // Send data using fetch API to Formspree
-  fetch('https://formspree.io/f/mykypoaj', {
-    method: 'POST',
+  fetch("https://formspree.io/f/mykypoaj", {
+    method: "POST",
     body: formData,
     headers: {
-      'Accept': 'application/json'
-    }
+      Accept: "application/json",
+    },
   })
-  .then(async (response) => {
-    if (response.ok) {
-      showNotification("Thank you! Your message has been sent successfully.", "success");
-      contactForm.reset();
-    } else {
-      // Try to read error details from JSON response
-      let data = null;
-      try { data = await response.json(); } catch (err) { /* ignore */ }
-      const msg = (data && (data.error || data.message)) ? (data.error || data.message) : "Oops! There was a problem sending your message.";
-      showNotification(msg, "error");
-    }
+    .then(async (response) => {
+      if (response.ok) {
+        showNotification(
+          "Thank you! Your message has been sent successfully.",
+          "success",
+        );
+        contactForm.reset();
+      } else {
+        // Try to read error details from JSON response
+        let data = null;
+        try {
+          data = await response.json();
+        } catch (err) {
+          /* ignore */
+        }
+        const msg =
+          data && (data.error || data.message)
+            ? data.error || data.message
+            : "Oops! There was a problem sending your message.";
+        showNotification(msg, "error");
+      }
 
-    // Restore button and clear validation styles
-    submitButton.innerHTML = originalText;
-    submitButton.disabled = false;
-    nameFeedback.textContent = '';
-    emailFeedback.textContent = '';
-  subjectFeedback.textContent = '';
-  messageFeedback.textContent = '';
-  nameInput.classList.remove('invalid-input');
-  emailInput.classList.remove('invalid-input');
-  subjectInput.classList.remove('invalid-input');
-  messageInput.classList.remove('invalid-input');
-  })
-  .catch(() => {
-    showNotification("Network error. Please try again later.", "error");
-    submitButton.innerHTML = originalText;
-    submitButton.disabled = false;
-  });
+      // Restore button and clear validation styles
+      submitButton.innerHTML = originalText;
+      submitButton.disabled = false;
+      nameFeedback.textContent = "";
+      emailFeedback.textContent = "";
+      subjectFeedback.textContent = "";
+      messageFeedback.textContent = "";
+      nameInput.classList.remove("invalid-input");
+      emailInput.classList.remove("invalid-input");
+      subjectInput.classList.remove("invalid-input");
+      messageInput.classList.remove("invalid-input");
+    })
+    .catch(() => {
+      showNotification("Network error. Please try again later.", "error");
+      submitButton.innerHTML = originalText;
+      submitButton.disabled = false;
+    });
 });
 
 // Enhanced smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    
-    const targetId = this.getAttribute('href');
+
+    const targetId = this.getAttribute("href");
     const targetElement = document.querySelector(targetId);
-    
+
     if (targetElement) {
       // Close mobile menu if open
-      if (document.querySelector('.nav-menu').classList.contains('active')) {
-        document.querySelector('.nav-menu').classList.remove('active');
-        document.querySelector('.hamburger').classList.remove('active');
+      if (navMenu.classList.contains("active")) {
+        navMenu.classList.remove("active");
+        hamburger.classList.remove("active");
       }
-      
+
       // Smooth scroll with offset for fixed header
       const headerOffset = 80;
       const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   });
 });
 
 // Highlight active nav link on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
 
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const id = entry.target.id;
-    const link = document.querySelector(`.nav-menu a[href="#${id}"]`);
-    if (entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      if (link) link.classList.add('active');
-    }
-  });
-}, { threshold: 0.55 });
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.id;
+      const link = document.querySelector(`.nav-menu a[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        navLinks.forEach((l) => l.classList.remove("active"));
+        if (link) link.classList.add("active");
+      }
+    });
+  },
+  { threshold: 0.55 },
+);
 
-sections.forEach(section => sectionObserver.observe(section));
+sections.forEach((section) => sectionObserver.observe(section));
 
 // Navbar scroll effect
 let lastScrollTop = 0;
@@ -342,7 +356,7 @@ const navbar = document.querySelector(".navbar");
 
 window.addEventListener("scroll", () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
+
   if (scrollTop > lastScrollTop && scrollTop > 100) {
     // Scrolling down
     navbar.style.transform = "translateY(-100%)";
@@ -350,7 +364,7 @@ window.addEventListener("scroll", () => {
     // Scrolling up
     navbar.style.transform = "translateY(0)";
   }
-  
+
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
