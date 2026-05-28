@@ -59,6 +59,11 @@ window.addEventListener('scroll', () => {
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
+function closeMobileMenu() {
+  navMenu.classList.remove("active");
+  hamburger.classList.remove("active");
+}
+
 hamburger.addEventListener("click", () => {
   navMenu.classList.toggle("active");
   hamburger.classList.toggle("active");
@@ -66,17 +71,13 @@ hamburger.addEventListener("click", () => {
 
 // Close mobile menu when clicking nav links
 document.querySelectorAll(".nav-link").forEach(link => {
-  link.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    hamburger.classList.remove("active");
-  });
+  link.addEventListener("click", closeMobileMenu);
 });
 
 // Close mobile menu when clicking outside
 document.addEventListener("click", (e) => {
   if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-    navMenu.classList.remove("active");
-    hamburger.classList.remove("active");
+    closeMobileMenu();
   }
 });
 
@@ -301,9 +302,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     if (targetElement) {
       // Close mobile menu if open
-      if (document.querySelector('.nav-menu').classList.contains('active')) {
-        document.querySelector('.nav-menu').classList.remove('active');
-        document.querySelector('.hamburger').classList.remove('active');
+      if (navMenu.classList.contains('active')) {
+        closeMobileMenu();
       }
       
       // Smooth scroll with offset for fixed header
@@ -360,8 +360,7 @@ document.addEventListener("DOMContentLoaded", initializeTheme);
 // Handle keyboard navigation
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    navMenu.classList.remove("active");
-    hamburger.classList.remove("active");
+    closeMobileMenu();
   }
 });
 
