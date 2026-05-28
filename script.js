@@ -144,101 +144,51 @@ const emailFeedback = createFeedbackElement(emailInput);
 const subjectFeedback = createFeedbackElement(subjectInput);
 const messageFeedback = createFeedbackElement(messageInput);
 
-// Real-time validation functions
-nameInput.addEventListener('blur', () => {
-  const name = nameInput.value.trim();
-  if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
+// Validation helper function
+function validateField(input, feedback, condition, errorMessage) {
+  const isValid = condition(input.value.trim());
+  if (!isValid) {
+    feedback.textContent = errorMessage;
+    feedback.classList.add('invalid');
+    input.classList.add('invalid-input');
+    return false;
   } else {
-    nameFeedback.textContent = '';
-    nameFeedback.classList.remove('invalid');
-    nameInput.classList.remove('invalid-input');
+    feedback.textContent = '';
+    feedback.classList.remove('invalid');
+    input.classList.remove('invalid-input');
+    return true;
   }
-});
+}
 
-emailInput.addEventListener('blur', () => {
-  const email = emailInput.value.trim();
-  if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
-  } else {
-    emailFeedback.textContent = '';
-    emailFeedback.classList.remove('invalid');
-    emailInput.classList.remove('invalid-input');
-  }
-});
+// Field-specific validation functions
+const validateName = () => validateField(nameInput, nameFeedback, val => val && val.length >= 2, 'Name must be at least 2 characters');
+const validateEmailField = () => validateField(emailInput, emailFeedback, validateEmail, 'Please enter a valid email address');
+const validateMessage = () => validateField(messageInput, messageFeedback, val => val && val.length >= 10, 'Message must be at least 10 characters');
+const validateSubject = () => {
+  if (!subjectInput) return true;
+  return validateField(subjectInput, subjectFeedback, val => val && val.length >= 3, 'Subject must be at least 3 characters');
+};
 
-messageInput.addEventListener('blur', () => {
-  const message = messageInput.value.trim();
-  if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
-  } else {
-    messageFeedback.textContent = '';
-    messageFeedback.classList.remove('invalid');
-    messageInput.classList.remove('invalid-input');
-  }
-});
-
-// Subject validation
+// Real-time validation event listeners
+nameInput.addEventListener('blur', validateName);
+emailInput.addEventListener('blur', validateEmailField);
+messageInput.addEventListener('blur', validateMessage);
 if (subjectInput) {
-  subjectInput.addEventListener('blur', () => {
-    const subject = subjectInput.value.trim();
-    if (!subject || subject.length < 3) {
-      subjectFeedback.textContent = 'Subject must be at least 3 characters';
-      subjectFeedback.classList.add('invalid');
-      subjectInput.classList.add('invalid-input');
-    } else {
-      subjectFeedback.textContent = '';
-      subjectFeedback.classList.remove('invalid');
-      subjectInput.classList.remove('invalid-input');
-    }
-  });
+  subjectInput.addEventListener('blur', validateSubject);
 }
 
 contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
   
   const formData = new FormData(contactForm);
-  const name = formData.get("name").trim();
-  const email = formData.get("email").trim();
-  const subject = (formData.get("subject") || "").trim();
-  const message = formData.get("message").trim();
   
   // Validation
-  let isValid = true;
+  const isNameValid = validateName();
+  const isEmailValid = validateEmailField();
+  const isSubjectValid = validateSubject();
+  const isMessageValid = validateMessage();
   
-  if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
-    isValid = false;
-  }
-  
-  if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
-    isValid = false;
-  }
-
-  if (!subject || subject.length < 3) {
-    subjectFeedback.textContent = 'Subject must be at least 3 characters';
-    subjectFeedback.classList.add('invalid');
-    subjectInput.classList.add('invalid-input');
-    isValid = false;
-  }
-  
-  if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
-    isValid = false;
-  }
+  const isValid = isNameValid && isEmailValid && isSubjectValid && isMessageValid;
   
   if (!isValid) {
     showNotification("Please fix the errors in the form", "error");
