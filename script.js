@@ -301,9 +301,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     
     if (targetElement) {
       // Close mobile menu if open
-      if (document.querySelector('.nav-menu').classList.contains('active')) {
-        document.querySelector('.nav-menu').classList.remove('active');
-        document.querySelector('.hamburger').classList.remove('active');
+      if (navMenu.classList.contains('active')) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
       }
       
       // Smooth scroll with offset for fixed header
