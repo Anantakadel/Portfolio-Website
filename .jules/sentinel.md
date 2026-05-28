@@ -1,0 +1,4 @@
+## 2026-05-28 - Missing Content Security Policy and Subresource Integrity
+**Vulnerability:** The application was missing a Content Security Policy (CSP) and loaded external CSS libraries (FontAwesome) without Subresource Integrity (SRI) attributes.
+**Learning:** External CDNs are single points of failure. If compromised, an attacker could replace the legitimate script/stylesheet with malicious code affecting all consuming sites. Lack of CSP makes it easier to exploit XSS vulnerabilities since the browser cannot distinguish legitimate from malicious sources.
+**Prevention:** Always implement a restrictive CSP `default-src 'self'` where feasible, whitelisting necessary external domains. When pulling dependencies from CDNs, always generate and include the `integrity` (SRI) and `crossorigin="anonymous"` attributes.
