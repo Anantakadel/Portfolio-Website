@@ -145,59 +145,74 @@ const subjectFeedback = createFeedbackElement(subjectInput);
 const messageFeedback = createFeedbackElement(messageInput);
 
 // Real-time validation functions
-nameInput.addEventListener('blur', () => {
-  const name = nameInput.value.trim();
+function validateNameField(value) {
+  const name = value !== undefined ? value : nameInput.value.trim();
   if (!name || name.length < 2) {
     nameFeedback.textContent = 'Name must be at least 2 characters';
     nameFeedback.classList.add('invalid');
     nameInput.classList.add('invalid-input');
+    return false;
   } else {
     nameFeedback.textContent = '';
     nameFeedback.classList.remove('invalid');
     nameInput.classList.remove('invalid-input');
+    return true;
   }
-});
+}
 
-emailInput.addEventListener('blur', () => {
-  const email = emailInput.value.trim();
+function validateEmailField(value) {
+  const email = value !== undefined ? value : emailInput.value.trim();
   if (!validateEmail(email)) {
     emailFeedback.textContent = 'Please enter a valid email address';
     emailFeedback.classList.add('invalid');
     emailInput.classList.add('invalid-input');
+    return false;
   } else {
     emailFeedback.textContent = '';
     emailFeedback.classList.remove('invalid');
     emailInput.classList.remove('invalid-input');
+    return true;
   }
-});
+}
 
-messageInput.addEventListener('blur', () => {
-  const message = messageInput.value.trim();
+function validateMessageField(value) {
+  const message = value !== undefined ? value : messageInput.value.trim();
   if (!message || message.length < 10) {
     messageFeedback.textContent = 'Message must be at least 10 characters';
     messageFeedback.classList.add('invalid');
     messageInput.classList.add('invalid-input');
+    return false;
   } else {
     messageFeedback.textContent = '';
     messageFeedback.classList.remove('invalid');
     messageInput.classList.remove('invalid-input');
+    return true;
   }
-});
+}
+
+function validateSubjectField(value) {
+  if (!subjectInput) return true;
+  const subject = value !== undefined ? value : subjectInput.value.trim();
+  if (!subject || subject.length < 3) {
+    subjectFeedback.textContent = 'Subject must be at least 3 characters';
+    subjectFeedback.classList.add('invalid');
+    subjectInput.classList.add('invalid-input');
+    return false;
+  } else {
+    subjectFeedback.textContent = '';
+    subjectFeedback.classList.remove('invalid');
+    subjectInput.classList.remove('invalid-input');
+    return true;
+  }
+}
+
+nameInput.addEventListener('blur', () => validateNameField());
+emailInput.addEventListener('blur', () => validateEmailField());
+messageInput.addEventListener('blur', () => validateMessageField());
 
 // Subject validation
 if (subjectInput) {
-  subjectInput.addEventListener('blur', () => {
-    const subject = subjectInput.value.trim();
-    if (!subject || subject.length < 3) {
-      subjectFeedback.textContent = 'Subject must be at least 3 characters';
-      subjectFeedback.classList.add('invalid');
-      subjectInput.classList.add('invalid-input');
-    } else {
-      subjectFeedback.textContent = '';
-      subjectFeedback.classList.remove('invalid');
-      subjectInput.classList.remove('invalid-input');
-    }
-  });
+  subjectInput.addEventListener('blur', () => validateSubjectField());
 }
 
 contactForm.addEventListener("submit", (e) => {
@@ -212,33 +227,10 @@ contactForm.addEventListener("submit", (e) => {
   // Validation
   let isValid = true;
   
-  if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
-    isValid = false;
-  }
-  
-  if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
-    isValid = false;
-  }
-
-  if (!subject || subject.length < 3) {
-    subjectFeedback.textContent = 'Subject must be at least 3 characters';
-    subjectFeedback.classList.add('invalid');
-    subjectInput.classList.add('invalid-input');
-    isValid = false;
-  }
-  
-  if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
-    isValid = false;
-  }
+  if (!validateNameField(name)) isValid = false;
+  if (!validateEmailField(email)) isValid = false;
+  if (!validateSubjectField(subject)) isValid = false;
+  if (!validateMessageField(message)) isValid = false;
   
   if (!isValid) {
     showNotification("Please fix the errors in the form", "error");
