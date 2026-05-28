@@ -144,59 +144,43 @@ const emailFeedback = createFeedbackElement(emailInput);
 const subjectFeedback = createFeedbackElement(subjectInput);
 const messageFeedback = createFeedbackElement(messageInput);
 
+function setValidationState(input, feedback, message) {
+  if (message) {
+    feedback.textContent = message;
+    feedback.classList.add('invalid');
+    input.classList.add('invalid-input');
+  } else {
+    feedback.textContent = '';
+    feedback.classList.remove('invalid');
+    input.classList.remove('invalid-input');
+  }
+}
+
 // Real-time validation functions
 nameInput.addEventListener('blur', () => {
   const name = nameInput.value.trim();
-  if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
-  } else {
-    nameFeedback.textContent = '';
-    nameFeedback.classList.remove('invalid');
-    nameInput.classList.remove('invalid-input');
-  }
+  const message = (!name || name.length < 2) ? 'Name must be at least 2 characters' : '';
+  setValidationState(nameInput, nameFeedback, message);
 });
 
 emailInput.addEventListener('blur', () => {
   const email = emailInput.value.trim();
-  if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
-  } else {
-    emailFeedback.textContent = '';
-    emailFeedback.classList.remove('invalid');
-    emailInput.classList.remove('invalid-input');
-  }
+  const message = (!validateEmail(email)) ? 'Please enter a valid email address' : '';
+  setValidationState(emailInput, emailFeedback, message);
 });
 
 messageInput.addEventListener('blur', () => {
-  const message = messageInput.value.trim();
-  if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
-  } else {
-    messageFeedback.textContent = '';
-    messageFeedback.classList.remove('invalid');
-    messageInput.classList.remove('invalid-input');
-  }
+  const messageText = messageInput.value.trim();
+  const message = (!messageText || messageText.length < 10) ? 'Message must be at least 10 characters' : '';
+  setValidationState(messageInput, messageFeedback, message);
 });
 
 // Subject validation
 if (subjectInput) {
   subjectInput.addEventListener('blur', () => {
     const subject = subjectInput.value.trim();
-    if (!subject || subject.length < 3) {
-      subjectFeedback.textContent = 'Subject must be at least 3 characters';
-      subjectFeedback.classList.add('invalid');
-      subjectInput.classList.add('invalid-input');
-    } else {
-      subjectFeedback.textContent = '';
-      subjectFeedback.classList.remove('invalid');
-      subjectInput.classList.remove('invalid-input');
-    }
+    const message = (!subject || subject.length < 3) ? 'Subject must be at least 3 characters' : '';
+    setValidationState(subjectInput, subjectFeedback, message);
   });
 }
 
@@ -213,30 +197,22 @@ contactForm.addEventListener("submit", (e) => {
   let isValid = true;
   
   if (!name || name.length < 2) {
-    nameFeedback.textContent = 'Name must be at least 2 characters';
-    nameFeedback.classList.add('invalid');
-    nameInput.classList.add('invalid-input');
+    setValidationState(nameInput, nameFeedback, 'Name must be at least 2 characters');
     isValid = false;
   }
   
   if (!validateEmail(email)) {
-    emailFeedback.textContent = 'Please enter a valid email address';
-    emailFeedback.classList.add('invalid');
-    emailInput.classList.add('invalid-input');
+    setValidationState(emailInput, emailFeedback, 'Please enter a valid email address');
     isValid = false;
   }
 
   if (!subject || subject.length < 3) {
-    subjectFeedback.textContent = 'Subject must be at least 3 characters';
-    subjectFeedback.classList.add('invalid');
-    subjectInput.classList.add('invalid-input');
+    setValidationState(subjectInput, subjectFeedback, 'Subject must be at least 3 characters');
     isValid = false;
   }
   
   if (!message || message.length < 10) {
-    messageFeedback.textContent = 'Message must be at least 10 characters';
-    messageFeedback.classList.add('invalid');
-    messageInput.classList.add('invalid-input');
+    setValidationState(messageInput, messageFeedback, 'Message must be at least 10 characters');
     isValid = false;
   }
   
@@ -275,14 +251,10 @@ contactForm.addEventListener("submit", (e) => {
     // Restore button and clear validation styles
     submitButton.innerHTML = originalText;
     submitButton.disabled = false;
-    nameFeedback.textContent = '';
-    emailFeedback.textContent = '';
-  subjectFeedback.textContent = '';
-  messageFeedback.textContent = '';
-  nameInput.classList.remove('invalid-input');
-  emailInput.classList.remove('invalid-input');
-  subjectInput.classList.remove('invalid-input');
-  messageInput.classList.remove('invalid-input');
+    setValidationState(nameInput, nameFeedback, '');
+    setValidationState(emailInput, emailFeedback, '');
+    setValidationState(subjectInput, subjectFeedback, '');
+    setValidationState(messageInput, messageFeedback, '');
   })
   .catch(() => {
     showNotification("Network error. Please try again later.", "error");
