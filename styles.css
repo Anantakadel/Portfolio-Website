@@ -133,7 +133,6 @@ a:focus-visible {
   transition: all var(--transition-normal);
   padding: 1rem 0;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .dark-theme .header {
