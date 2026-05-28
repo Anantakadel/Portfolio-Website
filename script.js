@@ -370,4 +370,10 @@ window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
+// Export for testing
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    validateEmail
+  };
+}
 // End of script
