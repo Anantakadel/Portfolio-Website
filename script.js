@@ -371,3 +371,10 @@ window.addEventListener("load", () => {
 });
 
 // End of script
+
+// Export for testing
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    showNotification
+  };
+}
