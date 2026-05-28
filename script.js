@@ -47,11 +47,19 @@ prefersDarkScheme.addEventListener("change", (e) => {
 
 // Add scroll event for header
 const header = document.querySelector('.header');
+let headerTicking = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
+  if (!headerTicking) {
+    window.requestAnimationFrame(() => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      headerTicking = false;
+    });
+    headerTicking = true;
   }
 });
 
@@ -339,19 +347,26 @@ sections.forEach(section => sectionObserver.observe(section));
 // Navbar scroll effect
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
+let navbarTicking = false;
 
 window.addEventListener("scroll", () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  
-  if (scrollTop > lastScrollTop && scrollTop > 100) {
-    // Scrolling down
-    navbar.style.transform = "translateY(-100%)";
-  } else {
-    // Scrolling up
-    navbar.style.transform = "translateY(0)";
+  if (!navbarTicking) {
+    window.requestAnimationFrame(() => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        // Scrolling up
+        navbar.style.transform = "translateY(0)";
+      }
+
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      navbarTicking = false;
+    });
+    navbarTicking = true;
   }
-  
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
 // Initialize theme on page load
