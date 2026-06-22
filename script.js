@@ -21,10 +21,11 @@ function initializeTheme() {
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = prefersDarkScheme.matches;
 
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-    setTheme(true);
-  } else {
+  // Tech theme defaults to dark unless explicitly light
+  if (savedTheme === "light") {
     setTheme(false);
+  } else {
+    setTheme(true);
   }
 }
 
@@ -408,6 +409,26 @@ document.addEventListener("keydown", (e) => {
 // Add loading state management
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
+
+  // Typewriter effect for Hero Title
+  const titleElement = document.getElementById("typewriter-title");
+  if (titleElement) {
+    const textToType = "Ananta Kadel";
+    titleElement.textContent = ""; // Clear for animation
+    let i = 0;
+    
+    function typeWriter() {
+      if (i < textToType.length) {
+        titleElement.textContent += textToType.charAt(i);
+        i++;
+        // Randomize typing speed slightly for realism
+        setTimeout(typeWriter, Math.random() * 50 + 100);
+      }
+    }
+    
+    // Start typing after a brief delay
+    setTimeout(typeWriter, 800);
+  }
 });
 
 // End of script
